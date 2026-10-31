@@ -1,0 +1,42 @@
+# 商品模块测试数据
+
+product_list:
+  - case_name: "默认分页查询商品列表"
+    page: 1
+    size: 10
+    expected_status: 200
+    expected_code: 0
+
+  - case_name: "按分类筛选商品"
+    page: 1
+    size: 10
+    category: "electronics"
+    expected_status: 200
+    expected_code: 0
+
+  - case_name: "搜索存在的关键词"
+    page: 1
+    size: 10
+    keyword: "手机"
+    expected_status: 200
+    expected_code: 0
+
+  - case_name: "搜索不存在的关键词"
+    page: 1
+    size: 10
+    keyword: "不存在的商品xyz123"
+    expected_status: 200
+    expected_code: 0
+    expected_list_empty: true
+
+product_detail:
+  - case_name: "查询存在的商品详情"
+    product_id: 10001
+    expected_status: 200
+    expected_code: 0
+
+  - case_name: "查询不存在的商品"
+    product_id: 99999999
+    expected_status: 200
+    expected_code: 20001
+    expected_msg: "商品不存在"

@@ -1,0 +1,25 @@
+# 多环境配置
+# 使用方式：在config/config.yaml中配置不同环境，运行时通过环境变量ENV指定
+
+dev:
+  base_url: "http://dev-api.example.com"
+  timeout: 10
+  admin_user:
+    username: "test_admin"
+    password: "Test@123456"
+  normal_user:
+    username: "test_user01"
+    password: "User@123456"
+
+test:
+  base_url: "http://shop-xo.hctestedu.com"
+  timeout: 10
+  admin_user:
+    username: "test_admin"
+    password: "Test@123456"
+  normal_user:
+    username: "test_user01"
+    password: "User@123456"
+
+# 默认使用的环境
+active_env: "test"

@@ -1,0 +1,13 @@
+2026-10-31 16:47:30.126 | INFO     | utils.extract:clear:40 - 依赖缓存已清空
+2026-10-31 16:47:30.126 | INFO     | conftest:session_setup:27 - === 测试开始，环境: test，登录用户: test_user01 ===
+2026-10-31 16:47:30.126 | INFO     | common.request:request:29 - 请求: POST http://shop-xo.hctestedu.com/api/user/login
+2026-10-31 16:47:30.126 | INFO     | common.request:request:33 -   Body: {'username': 'test_user01', 'password': 'User@123456'}
+2026-10-31 16:47:30.302 | INFO     | common.request:request:39 - 响应状态码: 404
+2026-10-31 16:47:30.302 | INFO     | common.request:request:40 - 响应体: <html>
+<head><title>404 Not Found</title></head>
+<body>
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+# 优惠券模块测试数据
+
+receive_coupon:
+  - case_name: "正常领取优惠券"
+    coupon_id: 50001
+    expected_status: 200
+    expected_code: 0
+    extract_user_coupon: true
+
+  - case_name: "重复领取同一优惠券"
+    coupon_id: 50001
+    expected_status: 200
+    expected_code: 50001
+    expected_msg: "您已领取过该优惠券"
+
+  - case_name: "优惠券已过期"
+    coupon_id: 50099
+    expected_status: 200
+    expected_code: 50002
+    expected_msg: "优惠券已过期"
+
+  - case_name: "优惠券已领完"
+    coupon_id: 50098
+    expected_status: 200
+    expected_code: 50003
+    expected_msg: "优惠券已被领完"

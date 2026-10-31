@@ -1,0 +1,40 @@
+# 购物车模块测试数据
+
+add_to_cart:
+  - case_name: "正常加入购物车1件"
+    product_id: 10001
+    quantity: 1
+    expected_status: 200
+    expected_code: 0
+
+  - case_name: "加入购物车多件商品"
+    product_id: 10001
+    quantity: 5
+    expected_status: 200
+    expected_code: 0
+
+  - case_name: "商品不存在"
+    product_id: 99999999
+    quantity: 1
+    expected_status: 200
+    expected_code: 20001
+
+  - case_name: "购买数量为0（边界值）"
+    product_id: 10001
+    quantity: 0
+    expected_status: 200
+    expected_code: 30001
+    expected_msg: "购买数量必须大于0"
+
+  - case_name: "购买数量超过库存"
+    product_id: 10001
+    quantity: 99999
+    expected_status: 200
+    expected_code: 30002
+    expected_msg: "库存不足"
+
+  - case_name: "购买数量为负数（异常）"
+    product_id: 10001
+    quantity: -1
+    expected_status: 200
+    expected_code: 30001

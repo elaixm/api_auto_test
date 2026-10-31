@@ -1,0 +1,33 @@
+# 订单模块测试数据
+
+create_order:
+  - case_name: "正常创建订单"
+    address_id: 1
+    remark: "请尽快发货"
+    expected_status: 200
+    expected_code: 0
+    extract_order_id: true
+
+  - case_name: "使用优惠券创建订单"
+    address_id: 1
+    remark: ""
+    use_coupon: true
+    expected_status: 200
+    expected_code: 0
+
+  - case_name: "地址不存在"
+    address_id: 99999
+    remark: ""
+    expected_status: 200
+    expected_code: 40001
+    expected_msg: "收货地址不存在"
+
+cancel_order:
+  - case_name: "取消待支付订单"
+    expected_status: 200
+    expected_code: 0
+
+  - case_name: "取消已支付订单（应失败）"
+    expected_status: 200
+    expected_code: 40002
+    expected_msg: "已支付订单不能取消"

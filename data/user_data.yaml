@@ -1,0 +1,63 @@
+# 用户模块测试数据
+# 每条用例: case_name, 请求参数, 预期状态码, 预期code, 预期提示
+
+login_success:
+  - case_name: "正确账号密码登录"
+    username: "test_user01"
+    password: "User@123456"
+    expected_status: 200
+    expected_code: 0
+    expected_msg: "success"
+
+login_fail:
+  - case_name: "密码错误"
+    username: "test_user01"
+    password: "wrong_password"
+    expected_status: 200
+    expected_code: 10001
+    expected_msg: "用户名或密码错误"
+
+  - case_name: "账号不存在"
+    username: "not_exist_user_999"
+    password: "any_password"
+    expected_status: 200
+    expected_code: 10001
+    expected_msg: "用户名或密码错误"
+
+  - case_name: "用户名为空"
+    username: ""
+    password: "User@123456"
+    expected_status: 200
+    expected_code: 10002
+    expected_msg: "用户名不能为空"
+
+  - case_name: "密码为空"
+    username: "test_user01"
+    password: ""
+    expected_status: 200
+    expected_code: 10002
+    expected_msg: "密码不能为空"
+
+register:
+  - case_name: "正常注册新用户"
+    username: "auto_test_001"
+    password: "Auto@123456"
+    email: "auto_test_001@test.com"
+    expected_status: 200
+    expected_code: 0
+
+  - case_name: "用户名已存在"
+    username: "test_user01"
+    password: "Test@123456"
+    email: ""
+    expected_status: 200
+    expected_code: 10003
+    expected_msg: "用户名已被注册"
+
+  - case_name: "密码长度不足6位"
+    username: "auto_test_002"
+    password: "123"
+    email: ""
+    expected_status: 200
+    expected_code: 10004
+    expected_msg: "密码长度不能少于6位"
